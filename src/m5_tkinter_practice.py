@@ -44,7 +44,7 @@ def main():
     mono['command'] = lambda: print("Hello")
 
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -52,8 +52,15 @@ def main():
     #        is the string 'ok', but print "Goodbye" otherwise.
     # -------------------------------------------------------------------------
 
+    mark = ttk.Entry(note)
+    mark.grid()
+    mono2 = ttk.Button(note)
+    mono2.grid()
+
+    mono2['command'] = lambda: first_entry(mark, 'ok')
+
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -76,11 +83,30 @@ def main():
     #      n = int(s)
     ####################################################################
 
+    mark2 = ttk.Entry(note)
+    mark2.grid()
+    mono3 = ttk.Button(note)
+    mono3.grid()
+
+    mono3['command'] = lambda: second_function(mark, mark2)
+
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
     root.mainloop()
+
+
+def first_entry(entry_box, desired):
+    if str(entry_box.get()) == desired:
+        print("Hello")
+    else:
+        print("Goodbye")
+
+
+def second_function(entry_box_1, entry_box_2):
+    for x in range(int(entry_box_2.get())):
+        print(entry_box_1.get())
 
 
 # -----------------------------------------------------------------------------
